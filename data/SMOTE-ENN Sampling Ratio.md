@@ -3,13 +3,13 @@
 ## 1. Problem Definition (문제 정의)
 * **주어진 환경:** 정상 파일($C_0$)과 악성코드($C_1$)의 비율이 $\approx 1 : 23.7$인 극도의 불균형 데이터셋.
 * **사전 확률(Prior Probability):** $P(C_1) \approx 0.96$
-* **한계점 (Limitation):** * 원본 데이터($1:23$)로 학습할 경우, 다수 클래스로의 편향성에 의한 **정확도의 역설(Accuracy Paradox)** 발생.
+* **한계점 (Limitation):**  원본 데이터($1:23$)로 학습할 경우, 다수 클래스로의 편향성에 의한 **정확도의 역설(Accuracy Paradox)** 발생.
   * 반대로 SMOTE를 통해 $1:1$로 완전 균형(Full Balancing)을 맞출 경우, 합성 데이터의 과적합 및 결정 경계(Decision Boundary) 붕괴로 인한 **사전 확률 왜곡(Prior Distortion)** 발생 위험 존재.
 * **연구 목표:** 두 클래스 간의 탐지 밸런스($Macro\ F1$)를 극대화하고, 위협 탐지율($Recall(C_1)$)의 손실 없이 정상 파일 방어율($Recall(C_0)$)을 최대로 끌어올릴 수 있는 **최적의 샘플링 타겟 비율($\lambda$)** 도출.
 
 ---
 
-## 2. Definition of Evaluation Metrics (평가 지표의 정의 및 임계성)
+## 2. Definition of Evaluation Metrics (주요 평가 지표의 정의 및 임계성)
 
 ### 2.1. Definition: 위협 탐지율 ($Recall(C_1)$)의 절대성
 * **수식:** $Recall(C_1) = \frac{TP}{TP + FN}$
