@@ -8,11 +8,11 @@
 
 ### 1.1. Definition: Data-level Optimization (Ratio Tuning)
 * **정의:** 원본 분별 공간의 위상 기하학적 구조를 변형하는 방식임. 소수 클래스($C_0$, 정상)의 매니폴드 주변에 가상 벡터를 선형 보간하고, ENN을 통해 노이즈를 제거하여 결정 경계를 다차원적으로 확장함.
-* **조작 변수:** 타겟 샘플링 비율 ($\lambda = N_{C_0} / N_{C_1}$)
+* **조작 변수:** 타겟 샘플링 비율 - $\lambda = N_{C_0} / N_{C_1}$
 
 ### 1.2. Definition: Algorithm-level Optimization (Weight Tuning)
 * **정의:** 원본 데이터의 엔트로피와 분포를 $1:23.7$ 상태 그대로 보존하는 방식임. 대신 목적 함수(Objective Function)의 Gradient 및 Hessian 계산 시 오분류된 소수 클래스 엣지에 수학적 패널티를 가해 초평면을 평행 이동시킴.
-* **조작 변수:** 클래스별 손실 가중치 ($\omega = Cost(FN) / Cost(FP)$)
+* **조작 변수:** 클래스별 손실 가중치 - $\omega = Cost(FN) / Cost(FP)$
 
 ---
 
@@ -27,6 +27,10 @@
 | **Weight Tuning (Algo)**| $\omega = \mathbf{5x}$ (Sweet Spot) | 96.29% | **80.05%** | **96.98%** | **0.8085** | 0.9982 |
 | **Ratio Collapse** | $\lambda = 1:1$ (과적합) | 82.82% | 86.79% | 82.65% | 0.5965 | 0.9967 |
 | **Weight Collapse** | $\omega = 23.7x$ (수학적 최적) | 92.91% | 87.56% | 93.13% | 0.7311 | 0.9982 |
+
+<img width="861" height="426" alt="image" src="https://github.com/user-attachments/assets/531dd3d9-e90c-4821-a215-ffd3d5530faa" />
+
+<img width="857" height="458" alt="image" src="https://github.com/user-attachments/assets/4e9df77a-a3b6-4d1c-aafa-43040c794851" />
 
 ---
 
