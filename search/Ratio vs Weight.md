@@ -33,7 +33,7 @@
 ## 3. Core Theorems & Comparative Analysis (핵심 정리 및 비교 증명)
 
 ### 3.1. Theorem 1: 두 접근법의 수학적 동형성 (Isomorphism of Sweet Spots)
-* **현상:** 데이터 측면의 $\lambda = 1:4$ 최적해와 알고리즘 측면의 $\omega = 5x$ 최적해가 산출한 최종 메트릭($Recall(C_0) \approx 80\%$, $Recall(C_1) \approx 97\%$, $Macro\ F1 \approx 0.81$)이 소름 돋을 정도로 일치함.
+* **현상:** 데이터 측면의 $\lambda = 1:4$ 최적해와 알고리즘 측면의 $\omega = 5x$ 최적해가 산출한 최종 메트릭($Recall(C_0) \approx 80\%$, $Recall(C_1) \approx 97\%$, $Macro\ F1 \approx 0.81$)이 거의 일치함.
 * **증명:** 이는 데이터 공간에 가짜 샘플을 주입하여 경계를 확장하는 행위(Data-level)와 오분류 시 벌점을 높여 경계를 밀어내는 행위(Algorithm-level)가 분류기의 내부 결정 경계 초평면 형성 과정에서 **완벽히 동일한 위상학적 변화(Topological Transformation)**를 유발했음을 실증함. 즉, 두 파이프라인 모두 전역 최적해(Global Optima)의 동일한 물리적 경계선에 도달했음이 입증됨.
 
 ### 3.2. Theorem 2: 붕괴 메커니즘의 차이 (Divergence of Collapse Mechanisms)
