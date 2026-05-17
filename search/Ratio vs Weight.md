@@ -1,6 +1,6 @@
 # [Project Note] 불균형 트래픽 대응을 위한 XGBoost 최적화 프레임워크 최종 보고
 
-오늘 수행한 데이터 기반 접근법($\text{SMOTE-ENN\ Ratio\ Tuning}$)과 알고리즘 기반 접근법($\text{Cost-Sensitive\ Weight\ Tuning}$)의 실험 결과를 수학적으로 연계하여 최종 요약함.
+데이터 기반 접근법($\text{SMOTE-ENN\ Ratio\ Tuning}$)과 알고리즘 기반 접근법($\text{Cost-Sensitive\ Weight\ Tuning}$)의 실험 결과를 수학적으로 연계하여 요약함.
 
 ---
 
@@ -28,9 +28,9 @@
 | **Ratio Collapse** | $\lambda = 1:1$ (과적합) | 82.82% | 86.79% | 82.65% | 0.5965 | 0.9967 |
 | **Weight Collapse** | $\omega = 23.7x$ (수학적 최적) | 92.91% | 87.56% | 93.13% | 0.7311 | 0.9982 |
 
-<img width="861" height="426" alt="image" src="https://github.com/user-attachments/assets/531dd3d9-e90c-4821-a215-ffd3d5530faa" />
+<img width="861" height="426" alt="Ratio Tuning Curve" src="https://github.com/user-attachments/assets/531dd3d9-e90c-4821-a215-ffd3d5530faa" />
 
-<img width="857" height="458" alt="image" src="https://github.com/user-attachments/assets/4e9df77a-a3b6-4d1c-aafa-43040c794851" />
+<img width="857" height="458" alt="Weight Tuning Curve" src="https://github.com/user-attachments/assets/4e9df77a-a3b6-4d1c-aafa-43040c794851" />
 
 ---
 
@@ -47,9 +47,22 @@
 
 ---
 
-## 4. Final Architectural Decision (최종 아키텍처 선택 제언)
+## 4. Geometric Analysis of the Sweet Spot (기하학적 교차점 채택 근거)
 
-교수님의 피드백과 두 코드의 최종 벤치마크 결과를 종합할 때, **`Cost-Sensitive Learning (Weight = 5x)` 아키텍처를 최종 프로덕션 모델로 채택하는 것이 논리적으로 우위**에 있음.
+위의 두 그래프에서 무수히 많은 곡선 위의 점들 중, 정상 탐지율($Recall(C_0)$) 곡선과 종합 점수($Macro\ F1$) 곡선이 $\approx 80\%$ 부근에서 교차하는 지점($\lambda = 1:4$ 또는 $\omega = 5x$)을 최적해로 채택한 기하학적/수학적 근거는 다음과 같음.
+
+### 4.1. Theorem 3: 파레토 최적 (Pareto Optimality)의 달성
+* **분석:** 교차점을 넘어서 가중치나 보간 비율을 늘리면 $Recall(C_0)$는 $5\%p$ 내외로 미미하게 상승하지만, 반대급부로 $Macro\ F1$과 $Recall(C_1)$은 수직 낙하하기 시작함. 즉, 이 교차점은 **"가장 적은 악성코드 탐지율 손실로, 가장 극적인 정상 파일 탐지율 상승(+30%p)을 이끌어낸 한계 효용의 정점(Marginal Utility Peak)"**임.
+
+### 4.2. Theorem 4: 위상학적 동기화 및 절대 방어선 (Critical Threshold)
+* **동기화 (Synchronization):** 소수 클래스 지표인 $Recall(C_0)$와 모델 전체의 조화평균인 $Macro\ F1$이 수렴했다는 것은, 분류기가 드디어 다수 클래스($C_1$)에 대한 맹목적 편향을 극복하고 소수 클래스 방어력을 모델 전체 평균 수준으로 끌어올렸음을 증명함.
+* **절대 방어선 (Critical Limit):** 사이버 보안 아키텍처의 특성상 악성코드 미탐(False Negative)은 치명적이므로 위협 탐지율($Recall(C_1)$)은 반드시 $95\%$ 이상의 마지노선을 지켜야 함. 따라서 교차점은 $Recall(C_1)$이 보안 시스템으로서의 가치($96.98\%$)를 훼손하지 않으면서 오탐지($Recall(C_0)$)를 가장 현실적으로 제어한 **실무적 한계선(Practical Threshold)**임.
+
+---
+
+## 5. Final Architectural Decision (최종 아키텍처 선택 제언)
+
+교차점의 기하학적 근거와 붕괴 메커니즘 벤치마크 결과를 종합할 때, **`Cost-Sensitive Learning (Weight = 5x)` 아키텍처를 최종 프로덕션 모델로 채택하는 것이 논리적으로 우위**에 있음.
 
 1. **데이터 무결성(Data Integrity):** 가짜 데이터($SMOTE$) 주입에 따른 잠재적 오염 위험성이 $0\%$이므로 학술적/실무적 가용성 확보에 유리함.
-2. **붕괴 리스크 제어:** 임계값 초과 시 기하급수적으로 무너지는 SMOTE 기반 모델에 비해, 가중치 조절 방식은 완만한 성능 우하향 곡선을 그리므로 배포 환경 변화에 대한 견고성(Robustness)이 훨씬 뛰어남.
+2. **붕괴 리스크 제어:** 임계값 초과 시 기하급수적으로 무너지는 모델에 비해, 비용 민감성 조절 방식은 완만한 성능 우하향 곡선을 그리므로 배포 환경 변화에 대한 견고성(Robustness)이 훨씬 뛰어남.
