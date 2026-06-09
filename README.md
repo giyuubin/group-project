@@ -31,15 +31,30 @@ python app.py
 
 ### 3. Run Batch Prediction (Packed Malware Defense)
 This script demonstrates our model's capability to detect highly packed or obfuscated malware (e.g., `njRAT`, `Remcos`) where 0 API features are extracted.
+
+* **Preparation:** Place the `.exe` files you want to test inside the `sample/` directory (e.g., `sample/malware/test.exe`).
+* **Execution:**
 ```bash
 python batch_predict.py
 ```
-* The console will output the prediction logs, showing how the model successfully blocks them with a **94.92% probability** by leveraging the "absence of normal indicators".
+* The console will output the prediction logs, showing how the model successfully blocks them with a **94.92% probability** by leveraging the "absence of normal indicators". The results are also saved in `batch_results.csv`.
 
 <br>
 
-## 🔬 Core Achievements
-Our deployed model (`lightgbm_final.pkl`) was built through the following optimizations:
+## 📊 Final Test Set Performance
+Based on a completely isolated test dataset.
+
+| Metrics | Score | Operational Impact |
+| :--- | :---: | :--- |
+| **Balanced Accuracy** | `0.93` | Robust detection of both malware and normal files. |
+| **Malware Recall** | `0.95` | Strongly maintains the defense line against fatal misses. |
+| **Normal Recall** | `0.91` | Protects user experience by minimizing false positives. |
+| **False Positive Rate** | `8.6%` | Drastically reduces system FP burden. |
+
+<br>
+
+## 🔬 Core Achievements & Methodology
+Our deployed model (`lightgbm_final.pkl`) was built using a dataset of **47,580 PE samples** (1,929 Normal / 45,651 Malware) through the following optimizations:
 
 * **Feature Optimization:** Reduced the initial 1,000 APIs to the **Top 50 core APIs** where diminishing returns begin, maximizing inference speed and preventing overfitting.
 * **Imbalance Handling:** Applied **SMOTE 1:4 resampling** to overcome the extreme 1:23.7 data imbalance, recovering the normal file recognition rate to 82.8%.
