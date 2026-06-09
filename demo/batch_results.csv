@@ -1,0 +1,10 @@
+﻿family,file,prediction,raw_proba,confidence_pct,total_imported_apis,matched_features,error
+(root),asyncrat.exe,악성,0.9974,99.74,155,14,
+(root),emotet.exe,악성,0.9886,98.86,41,2,
+(root),icedid.exe,악성,0.9478,94.78,156,12,
+(root),lockbit.exe,악성,0.8752,87.52,25,3,
+(root),lumma.exe,악성,0.9714,97.14,38,4,
+(root),njrat.exe,악성,0.9492,94.92,1,0,
+(root),redline.exe,악성,0.9993,99.93,513,25,
+(root),Remcos.exe,악성,0.9492,94.92,1,0,
+(root),smokeloader.exe,악성,0.9923,99.23,136,11,

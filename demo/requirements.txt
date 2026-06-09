@@ -1,0 +1,7 @@
+flask
+flask-cors
+pefile
+pandas
+lightgbm
+scikit-learn
+joblib
