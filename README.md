@@ -21,6 +21,7 @@ git clone https://github.com/giyuubin/ml-based-static-api-malware-detection-syst
 cd ml-based-static-api-malware-detection-system/demo
 pip install -r requirements.txt
 ```
+*(Note: If you encounter module errors or if `pip`/`python` commands are not recognized in Windows, please consistently use the `py` launcher for all commands. e.g., `py -m pip install -r requirements.txt` and `py app.py`)*
 
 ### 2. Run Real-time Web Scanner (UI)
 ```bash
