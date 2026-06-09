@@ -5,6 +5,8 @@
 ![LightGBM](https://img.shields.io/badge/LightGBM-3.3+-green.svg?style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-Web_Demo-black.svg?style=flat-square)
 
+📄[Detailed Technical Report (Notion)](https://app.notion.com/p/36de8de0e4a380a0b9d9e985358df481?assetsVersion=23.13.20260609.0651#36de8de0e4a380fcbb6ff752cead1b66)
+
 This project introduces an ultra-lightweight **1st-line of defense (Pre-filter)** machine learning pipeline. It statically parses the **Import Address Table (IAT)** from the Portable Executable (PE) structure of Windows files (`.exe`) to pre-determine maliciousness in milliseconds, without executing them. 
 
 It is designed to complement the evasion vulnerabilities of traditional signature-based detection and drastically reduce the resource bottlenecks introduced to dynamic analysis (Sandbox) systems.
@@ -21,6 +23,7 @@ git clone https://github.com/giyuubin/ml-based-static-api-malware-detection-syst
 cd ml-based-static-api-malware-detection-system/demo
 pip install -r requirements.txt
 ```
+*(Note: If you encounter module errors or if `pip`/`python` commands are not recognized in Windows, please consistently use the `py` launcher for all commands. e.g., `py -m pip install -r requirements.txt` and `py app.py`)*
 
 ### 2. Run Real-time Web Scanner (UI)
 ```bash
