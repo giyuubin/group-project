@@ -36,7 +36,7 @@ python app.py
 This script demonstrates our model's capability to detect highly packed or obfuscated malware (e.g., `njRAT`, `Remcos`) where 0 API features are extracted.
 
 * **Preparation:** Place the `.exe` files you want to test inside the `sample/` directory (e.g., `sample/malware/test.exe`).
- > ⚠️ ***Note:** Due to GitHub's strict security policy prohibiting the upload of real malicious files, the `sample/malware/` directory is intentionally left empty. Please securely source your own malware samples for testing.*
+  > ⚠️ ***Note:** Due to GitHub's strict security policy prohibiting the upload of real malicious files, the `sample/malware/` directory is intentionally left empty. Please securely source your own malware samples for testing.*
 * **Execution:**
 ```bash
 python batch_predict.py
