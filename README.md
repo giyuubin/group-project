@@ -5,7 +5,7 @@
 ![LightGBM](https://img.shields.io/badge/LightGBM-3.3+-green.svg?style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-Web_Demo-black.svg?style=flat-square)
 
-📄[Detailed Technical Report (Notion)](https://app.notion.com/p/36de8de0e4a380a0b9d9e985358df481?assetsVersion=23.13.20260609.0651#36de8de0e4a380fcbb6ff752cead1b66)
+📄[Detailed Technical Report](https://app.notion.com/p/36de8de0e4a380a0b9d9e985358df481?assetsVersion=23.13.20260609.0651#36de8de0e4a380fcbb6ff752cead1b66)
 
 This project introduces an ultra-lightweight **1st-line of defense (Pre-filter)** machine learning pipeline. It statically parses the **Import Address Table (IAT)** from the Portable Executable (PE) structure of Windows files (`.exe`) to pre-determine maliciousness in milliseconds, without executing them. 
 
