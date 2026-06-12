@@ -5,7 +5,7 @@
 ![LightGBM](https://img.shields.io/badge/LightGBM-3.3+-green.svg?style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-Web_Demo-black.svg?style=flat-square)
 
-📄[Detailed Technical Report](https://app.notion.com/p/36de8de0e4a380a0b9d9e985358df481?assetsVersion=23.13.20260609.0651#36de8de0e4a380fcbb6ff752cead1b66)
+📄[Detailed Technical Report (Notion)](https://app.notion.com/p/36de8de0e4a380a0b9d9e985358df481?assetsVersion=23.13.20260609.0651#36de8de0e4a380fcbb6ff752cead1b66)
 
 This project introduces an ultra-lightweight **1st-line of defense (Pre-filter)** machine learning pipeline. It statically parses the **Import Address Table (IAT)** from the Portable Executable (PE) structure of Windows files (`.exe`) to pre-determine maliciousness in milliseconds, without executing them. 
 
@@ -16,7 +16,7 @@ It is designed to complement the evasion vulnerabilities of traditional signatur
 ## 🚀 Quick Start (Demo Evaluation)
 For a seamless evaluation, we provide a fully functional Web Scanner and a Batch Testing script using our final trained model.
 
-📄[Detailed Technical Report (Notion)](https://github.com/giyuubin/ML-Based-Static-API-Malware-Detection-System/blob/main/report/%EC%B5%9C%EC%A2%85%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%ED%97%98%20%EC%A0%88%EC%B0%A8%EC%84%9C.pdf)
+📄[Detailed Technical Report](https://github.com/giyuubin/ML-Based-Static-API-Malware-Detection-System/blob/main/report/%EC%B5%9C%EC%A2%85%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%ED%97%98%20%EC%A0%88%EC%B0%A8%EC%84%9C.pdf)
 
 ### 1. Environment Setup
 Clone the repository and navigate to the `demo/` directory to install dependencies.
