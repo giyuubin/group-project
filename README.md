@@ -16,7 +16,7 @@ It is designed to complement the evasion vulnerabilities of traditional signatur
 ## 🚀 Quick Start (Demo Evaluation)
 For a seamless evaluation, we provide a fully functional Web Scanner and a Batch Testing script using our final trained model.
 
-📄[report/Final-Project-Test-Procedure.pdf](https://github.com/giyuubin/ML-Based-Static-API-Malware-Detection-System/blob/main/report/%EC%B5%9C%EC%A2%85%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%ED%97%98%20%EC%A0%88%EC%B0%A8%EC%84%9C.pdf)
+📄[report/Final-Project-Test-Procedure.pdf](https://github.com/giyuubin/ML-Based-Static-API-Malware-Detection-System/blob/main/report/Final-Project-Test-Procedure.pdf)
 
 ### 1. Environment Setup
 Clone the repository and navigate to the `demo/` directory to install dependencies.
